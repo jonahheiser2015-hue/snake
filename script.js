@@ -2,7 +2,7 @@ let canvas = document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
         let rows = 20;
         let cols = 20;
-        let ham = new Audio('ham ham.mp3');
+        const ham = new Audio('ham ham.mp3');
         let snake = [
             {x: 19, y:3}
             
@@ -85,7 +85,7 @@ let canvas = document.getElementById('canvas');
         function gameLoop(){
             testGameOver();
             if(foodCollected){
-                ham.play;
+                ham.play();
                snake = [{ x: snake[0].x, y: snake[0].y }, ...snake];
                 foodCollected = false;
             }
