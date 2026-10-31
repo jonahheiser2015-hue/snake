@@ -1,4 +1,4 @@
-/* Verhindert jegliches Scrollen und zwingt alles in den sichtbaren Bereich */
+/* Verhindert jegliches Scrollen auf dem Samsung Galaxy A17 */
 body {
     margin: 0;
     padding: 0;
@@ -9,19 +9,18 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* Nutzt dynamische Grid-Verteilung statt Flex-Zentrierung */
     justify-content: space-between; 
     
     height: 100vh;
-    height: 100dvh; /* Berechnet die exakte Höhe deines Samsung-Displays */
+    height: 100dvh; 
     box-sizing: border-box;
     
-    /* Viel Platz oben, um garantiert unter der Kameraaussparung zu starten */
-    padding-top: 60px; 
-    padding-bottom: 30px;
+    /* Sicherheitsabstand oben gegen die Kamera-Aussparung */
+    padding-top: 50px; 
+    padding-bottom: 20px;
 }
 
-/* Der Punkte-Bereich hat eine feste Größe */
+/* Der Punkte-Bereich */
 .punkte {
     margin: 0;
     color: yellowgreen;
@@ -31,54 +30,54 @@ body {
 
 .punkte h1, #score {
     margin: 0;
-    font-size: 36px; 
+    font-size: 38px; 
     display: inline-block;
 }
 
-/* Der Spiele-Container zentriert das Canvas */
+/* Der Spiele-Container */
 .game {
     display: flex;
     flex-direction: column; 
     align-items: center; 
     justify-content: center;
-    flex-grow: 1; /* Nimmt sich den restlichen Platz in der Mitte */
+    flex-grow: 1; 
     width: 100%;
 }
 
 canvas {
     display: block;
     border: 2px solid white;
-    /* Zwingt das Canvas, auf dem A17 kompakt zu bleiben */
-    max-width: 80vw;
-    max-height: 30vh;
+    /* WIEDER GRÖSSER: Canvas nimmt sich jetzt deutlich mehr Platz */
+    max-width: 90vw;
+    max-height: 42vh;
     width: auto;
     height: auto;
 }
 
-/* Das Steuerkreuz sitzt fest im unteren Bereich */
+/* Das Steuerkreuz sitzt im unteren Drittel */
 .controls-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     user-select: none; 
-    margin-top: 15px;
+    margin-top: 10px;
     flex-shrink: 0;
 }
 
 .row {
     display: flex;
-    gap: 30px; 
+    gap: 35px; /* Angenehmer Daumen-Abstand */
 }
 
-/* Knöpfe perfekt skaliert für das A17 */
+/* Optimierte, große Knöpfe (80px statt 70px) */
 .btn {
-    width: 70px;         
-    height: 70px;        
-    font-size: 26px;     
+    width: 80px;         
+    height: 80px;        
+    font-size: 32px;     
     background-color: #333;
     color: white;
     border: 3px solid white; 
-    border-radius: 12px; 
+    border-radius: 15px; 
     cursor: pointer;
     display: flex;
     align-items: center;
