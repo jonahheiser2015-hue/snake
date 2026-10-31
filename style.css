@@ -1,4 +1,4 @@
-/* Verhindert das Scrollrad komplett */
+/* Verhindert jegliches Scrollen und zwingt alles in den sichtbaren Bereich */
 body {
     margin: 0;
     padding: 0;
@@ -9,86 +9,85 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* ÄNDERUNG: Richtet den Inhalt oben aus, nicht mehr in der Mitte */
-    justify-content: flex-start; 
+    /* Nutzt dynamische Grid-Verteilung statt Flex-Zentrierung */
+    justify-content: space-between; 
     
     height: 100vh;
-    height: 100dvh; 
+    height: 100dvh; /* Berechnet die exakte Höhe deines Samsung-Displays */
     box-sizing: border-box;
     
-    /* WICHTIG: 40px Sicherheitsabstand nach oben für die Samsung-Kamera/Statusleiste */
-    padding-top: 40px; 
-    padding-bottom: 20px;
+    /* Viel Platz oben, um garantiert unter der Kameraaussparung zu starten */
+    padding-top: 60px; 
+    padding-bottom: 30px;
 }
 
-/* Container für das Spiel (Canvas + Knöpfe) */
-.game {
-    display: flex;
-    flex-direction: column; 
-    align-items: center; 
-    gap: 10px;
-    width: 100%;
-}
-
+/* Der Punkte-Bereich hat eine feste Größe */
 .punkte {
-    margin: 0 0 10px 0;
+    margin: 0;
     color: yellowgreen;
     text-align: center;
+    flex-shrink: 0;
 }
 
 .punkte h1, #score {
     margin: 0;
-    font-size: 32px; 
+    font-size: 36px; 
     display: inline-block;
+}
+
+/* Der Spiele-Container zentriert das Canvas */
+.game {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center;
+    flex-grow: 1; /* Nimmt sich den restlichen Platz in der Mitte */
+    width: 100%;
 }
 
 canvas {
     display: block;
     border: 2px solid white;
-    /* Garantiert, dass das Canvas auf das Handydisplay passt */
-    max-width: 85vw;
-    max-height: 35vh;
+    /* Zwingt das Canvas, auf dem A17 kompakt zu bleiben */
+    max-width: 80vw;
+    max-height: 30vh;
     width: auto;
     height: auto;
 }
 
-/* Das Steuerkreuz zentrieren */
+/* Das Steuerkreuz sitzt fest im unteren Bereich */
 .controls-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     user-select: none; 
-    margin-top: 10px;
+    margin-top: 15px;
+    flex-shrink: 0;
 }
 
 .row {
     display: flex;
-    gap: 25px; /* Angenehmer Abstand zwischen Links und Rechts */
+    gap: 30px; 
 }
 
-/* Knöpfe optimiert für die Daumenbedienung */
+/* Knöpfe perfekt skaliert für das A17 */
 .btn {
-    width: 18vw;         
-    height: 18vw;        
-    max-width: 75px;     
-    max-height: 75px;    
-    font-size: 28px;     
+    width: 70px;         
+    height: 70px;        
+    font-size: 26px;     
     background-color: #333;
     color: white;
     border: 3px solid white; 
-    border-radius: 15px; 
+    border-radius: 12px; 
     cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 4px;         
     transition: background 0.1s;
-    
-    /* Verhindert extremes Zoomen bei schnellem Tippen auf dem Handy */
-    touch-action: manipulation; 
+    touch-action: manipulation; /* Blockiert störende Zoom-Gesten beim Tippen */
 }
 
-/* Effekt beim Drücken/Klicken */
 .btn:active {
     background-color: green;
     color: white;
