@@ -1,9 +1,19 @@
 .punkte {
     position: absolute;
-    margin-left: 1000px;
-    margin-top: 30px;
-    font-size: 10px;
+    top: 8px;
+    left: 8px;
+    margin: 0;
     color: yellowgreen;
+}
+
+.punkte h1 {
+    margin: 0;
+    font-size: 48px;
+}
+
+#score {
+    margin: 0;
+    font-size: 48px;
 }
 
 .canvas {

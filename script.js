@@ -85,9 +85,6 @@ let canvas = document.getElementById('canvas');
         }
 
         function gameLoop(){
-            document.getElementById("score").textContent = `SCORE: 
-            ${Math.round(scoreCount)}`;
-
             testGameOver();
             if(foodCollected){
                 ham.play();
@@ -117,6 +114,7 @@ let canvas = document.getElementById('canvas');
 
                 placeFood();
             }
+            document.getElementById("score").textContent = Math.round(scoreCount);
         }
 
         function keyDown(e){
