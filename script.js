@@ -12,6 +12,7 @@ let canvas = document.getElementById('canvas');
         let cellHeight = canvas.height / rows;
         let direction = 'LEFT';
         let foodCollected = false;
+        let scoreCount =0;
         placeFood();
 
         setInterval(gameLoop, 500);
@@ -47,6 +48,7 @@ let canvas = document.getElementById('canvas');
             || snake[0].y > rows -1
             || duplicatePart
             ){
+                scoreCount = 0;
                 placeFood();
                 snake = [
                     {
@@ -83,10 +85,15 @@ let canvas = document.getElementById('canvas');
         }
 
         function gameLoop(){
+            document.getElementById("score").textContent = `SCORE: 
+            ${Math.round(scoreCount)}`;
+
             testGameOver();
             if(foodCollected){
                 ham.play();
                snake = [{ x: snake[0].x, y: snake[0].y }, ...snake];
+               scoreCount = scoreCount + 10;
+               
                 foodCollected = false;
             }
             shiftSnake();

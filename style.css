@@ -1,0 +1,11 @@
+.punkte {
+    position: absolute;
+    margin-left: 1000px;
+    margin-top: 30px;
+    font-size: 100px;
+    color: yellowgreen;
+}
+
+.canvas {
+    display: block;
+}
