@@ -1,4 +1,3 @@
-/* Verhindert jegliches Scrollen auf dem Samsung Galaxy A17 */
 body {
     margin: 0;
     padding: 0;
@@ -15,12 +14,11 @@ body {
     height: 100dvh; 
     box-sizing: border-box;
     
-    /* Sicherheitsabstand oben gegen die Kamera-Aussparung */
-    padding-top: 50px; 
-    padding-bottom: 20px;
+    /* Perfekte Balance: Genug Platz für die Kamera, maximaler Platz fürs Spiel */
+    padding-top: 45px; 
+    padding-bottom: 15px;
 }
 
-/* Der Punkte-Bereich */
 .punkte {
     margin: 0;
     color: yellowgreen;
@@ -34,7 +32,6 @@ body {
     display: inline-block;
 }
 
-/* Der Spiele-Container */
 .game {
     display: flex;
     flex-direction: column; 
@@ -47,29 +44,28 @@ body {
 canvas {
     display: block;
     border: 2px solid white;
-    /* WIEDER GRÖSSER: Canvas nimmt sich jetzt deutlich mehr Platz */
-    max-width: 90vw;
-    max-height: 42vh;
+    /* MAXIMALE GRÖSSE: Nutzt die volle Breite und fast 50% der Höhe */
+    max-width: 95vw;
+    max-height: 48vh;
     width: auto;
     height: auto;
 }
 
-/* Das Steuerkreuz sitzt im unteren Drittel */
 .controls-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     user-select: none; 
-    margin-top: 10px;
+    margin-top: 8px;
     flex-shrink: 0;
 }
 
 .row {
     display: flex;
-    gap: 35px; /* Angenehmer Daumen-Abstand */
+    gap: 15px; /* Knöpfe enger zusammen, um Platz nach oben zu sparen */
 }
 
-/* Optimierte, große Knöpfe (80px statt 70px) */
+/* Große, griffige 80px-Knöpfe */
 .btn {
     width: 80px;         
     height: 80px;        
@@ -82,9 +78,9 @@ canvas {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 4px;         
+    margin: 3px;         
     transition: background 0.1s;
-    touch-action: manipulation; /* Blockiert störende Zoom-Gesten beim Tippen */
+    touch-action: manipulation; 
 }
 
 .btn:active {
