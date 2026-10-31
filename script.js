@@ -83,7 +83,9 @@ let canvas = document.getElementById('canvas');
                 
             }
         }
-
+        function setDirection(newDir) {
+            direction = newDir; // Setzt die Spielrichtung auf 'UP', 'DOWN', 'LEFT' oder 'RIGHT'
+}
         function gameLoop(){
             testGameOver();
             if(foodCollected){

@@ -14,7 +14,15 @@
             <h2 id="score">0</h2>
         </div>
     </div>
-
+ <div class="controls-container">
+            <button class="btn" onmousedown="setDirection('UP')" ontouchstart="setDirection('UP')">▲</button>
+            <div class="row">
+                <button class="btn" onmousedown="setDirection('LEFT')" ontouchstart="setDirection('LEFT')">◀</button>
+                <button class="btn" onmousedown="setDirection('RIGHT')" ontouchstart="setDirection('RIGHT')">▶</button>
+            </div>
+            <button class="btn" onmousedown="setDirection('DOWN')" ontouchstart="setDirection('DOWN')">▼</button>
+        </div>
+    </div>
     <script src="script.js"></script>
 
 </body>

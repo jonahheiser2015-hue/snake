@@ -1,24 +1,77 @@
+/* Verhindert das Scrollrad an der Seite */
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden; 
+    background-color: #111;
+    font-family: sans-serif;
+    
+    /* Aktiviert die Zentrierung für die gesamte Seite */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Nutzt exakt die volle Höhe des Fensters */
+}
+
+/* Container für das Spiel (Canvas + Knöpfe) */
 .game {
     display: flex;
-    align-items: flex-start;
+    flex-direction: column; 
+    align-items: center; /* Zentriert das Canvas und die Knöpfe untereinander */
     gap: 16px;
 }
 
 .punkte {
-    margin: 8px 0;
+    margin: 0 0 16px 0;
     color: yellowgreen;
+    text-align: center;
 }
 
-.punkte h1 {
+.punkte h1, #score {
     margin: 0;
     font-size: 48px;
+    display: inline-block;
 }
 
-#score {
-    margin: 0;
-    font-size: 48px;
-}
-
-.canvas {
+canvas {
     display: block;
+    border: 2px solid white;
+}
+
+/* Das Steuerkreuz zentrieren */
+.controls-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none; 
+    margin-top: 10px;
+}
+
+.row {
+    display: flex;
+    gap: 40px; /* Abstand zwischen Links- und Rechts-Knopf */
+}
+
+/* Extra große Knöpfe */
+.btn {
+    width: 90px;         
+    height: 90px;        
+    font-size: 36px;     
+    background-color: #333;
+    color: white;
+    border: 3px solid white; 
+    border-radius: 15px; 
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px;         
+    transition: background 0.1s;
+}
+
+/* Effekt beim Drücken/Klicken */
+.btn:active {
+    background-color: green;
+    color: white;
 }
