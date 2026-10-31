@@ -1,8 +1,11 @@
+.game {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
 .punkte {
-    position: absolute;
-    top: 8px;
-    left: 8px;
-    margin: 0;
+    margin: 8px 0;
     color: yellowgreen;
 }
 
