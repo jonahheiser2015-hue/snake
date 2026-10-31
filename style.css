@@ -1,4 +1,4 @@
-/* Verhindert das Scrollrad an der Seite */
+/* Verhindert das Scrollrad komplett */
 body {
     margin: 0;
     padding: 0;
@@ -6,15 +6,19 @@ body {
     background-color: #111;
     font-family: sans-serif;
     
-    /* Nutzt die echte, verfügbare Höhe ohne die Browserleisten zu sprengen */
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* ÄNDERUNG: Richtet den Inhalt oben aus, nicht mehr in der Mitte */
+    justify-content: flex-start; 
+    
     height: 100vh;
-    height: 100dvh; /* Dynamische Höhe für mobile Browser */
+    height: 100dvh; 
     box-sizing: border-box;
-    padding: 10px;
+    
+    /* WICHTIG: 40px Sicherheitsabstand nach oben für die Samsung-Kamera/Statusleiste */
+    padding-top: 40px; 
+    padding-bottom: 20px;
 }
 
 /* Container für das Spiel (Canvas + Knöpfe) */
@@ -22,52 +26,52 @@ body {
     display: flex;
     flex-direction: column; 
     align-items: center; 
-    gap: 12px;
-    max-height: 80vh; /* Verhindert, dass das Spiel zu hoch wird */
+    gap: 10px;
+    width: 100%;
 }
 
 .punkte {
-    margin: 0 0 8px 0;
+    margin: 0 0 10px 0;
     color: yellowgreen;
     text-align: center;
 }
 
 .punkte h1, #score {
     margin: 0;
-    font-size: 32px; /* Etwas kleiner für Smartphones */
+    font-size: 32px; 
     display: inline-block;
 }
 
 canvas {
     display: block;
     border: 2px solid white;
-    /* Skaliert das Canvas auf kleineren Bildschirmen automatisch herunter */
-    max-width: 90vw;
-    max-height: 40vh;
+    /* Garantiert, dass das Canvas auf das Handydisplay passt */
+    max-width: 85vw;
+    max-height: 35vh;
     width: auto;
     height: auto;
 }
 
-/* Das Steuerkreuz zentrieren und kompakter machen */
+/* Das Steuerkreuz zentrieren */
 .controls-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     user-select: none; 
-    margin-top: 5px;
+    margin-top: 10px;
 }
 
 .row {
     display: flex;
-    gap: 20px; /* Abstand zwischen Links und Rechts leicht verringert */
+    gap: 25px; /* Angenehmer Abstand zwischen Links und Rechts */
 }
 
-/* Knöpfe sind groß, passen sich aber auf kleinen Bildschirmen an */
+/* Knöpfe optimiert für die Daumenbedienung */
 .btn {
-    width: 18vw;         /* Nutzt die Viewport-Breite (perfekt für Smartphones) */
+    width: 18vw;         
     height: 18vw;        
-    max-width: 80px;     /* Deckelung nach oben für den PC */
-    max-height: 80px;    
+    max-width: 75px;     
+    max-height: 75px;    
     font-size: 28px;     
     background-color: #333;
     color: white;
@@ -79,6 +83,9 @@ canvas {
     justify-content: center;
     margin: 4px;         
     transition: background 0.1s;
+    
+    /* Verhindert extremes Zoomen bei schnellem Tippen auf dem Handy */
+    touch-action: manipulation; 
 }
 
 /* Effekt beim Drücken/Klicken */
